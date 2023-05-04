@@ -1,29 +1,20 @@
 function balancingParentheses(s) {
   const stack = [];
   for(let i=0;i<s.length;i++) {
-    // switch(s[i]) {
-    //   case '(':
-    //     stack.push('(');
-    //   case ')':
-    //     if (stack[stack.length-1] === '(') {
-    //       stack.pop();
-    //     }
-    //     else {
-    //       stack.push(')')
-    //     }
-    //   default:
-    //     break;
-    // }
-    if(s[i] === '(') {
-      stack.push('(');
-    }
-    else if(s[i] === ')') {
-      if (stack[stack.length-1] === '(') {
-        stack.pop();
-      }
-      else {
-        stack.push(')')
-      }
+    switch(s[i]) {
+      case '(':
+        stack.push('(');
+        break;
+      case ')':
+        if (stack[stack.length-1] === '(') {
+          stack.pop();
+        }
+        else {
+          stack.push(')');
+        }
+        break;
+      default:
+        break;
     }
   }
   return stack.length;
